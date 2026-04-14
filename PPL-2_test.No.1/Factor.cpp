@@ -1,6 +1,5 @@
 #include"Factor.h"
 #include<cmath>
-
 Factor::Factor(double a, double b, double c){
     this->a = a;
     this->b = b;
