@@ -1,6 +1,13 @@
-fibbonacci::Integral a => a -> a
-fibbonacci 0 = 0
-fibbonacci 1 = 1
-fibbonacci n = fibbonacci(n-1) + fibbonacci(n-2)
+module Main where
+
+fibonacci :: Integer -> Integer
+fibonacci 0 = 0
+fibonacci 1 = 1
+fibonacci n = fibonacci (n - 1) + fibonacci (n - 2)
+
 main :: IO ()
-main = print (fibbonacci 20)
+main = do
+    putStrLn "Enter a number:"
+    line <- getLine
+    let n = (read line :: Integer)
+    print (fibonacci n)
