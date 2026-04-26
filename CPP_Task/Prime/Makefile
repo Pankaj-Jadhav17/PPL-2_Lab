@@ -3,16 +3,20 @@ CXXFLAGS = -Wall -std=c++11
 
 TARGET = prime
 
+SRCS = main.cpp Prime.cpp
+
+OBJS = $(SRCS:.cpp=.o)
+
 all: $(TARGET)
 
-$(TARGET): main.o Prime.o
-	$(CXX) $(CXXFLAGS) -o $(TARGET) main.o Prime.o
+$(TARGET): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJS)
 
-main.o: main.cpp Prime.h
-	$(CXX) $(CXXFLAGS) -c main.cpp
-
-Prime.o: Prime.cpp Prime.h
-	$(CXX) $(CXXFLAGS) -c Prime.cpp
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $<
 
 clean:
-	rm -f *.o $(TARGET)
+	rm -f $(OBJS) $(TARGET)
+
+run: $(TARGET)
+	./$(TARGET)
