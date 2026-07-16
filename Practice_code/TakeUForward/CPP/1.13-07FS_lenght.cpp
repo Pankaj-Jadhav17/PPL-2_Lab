@@ -12,7 +12,6 @@ class solution{
 
 };
 
-
 int main(){
     solution is_object;
     string s = "Hello World";
