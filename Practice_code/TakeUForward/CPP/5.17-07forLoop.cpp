@@ -7,6 +7,7 @@ class solution{
         int sum = 0;
         for(int i=low; i<=high; i++){
             sum += i;
+            // int sum = (high * (high + 1) / 2) - ((low - 1) * low / 2);
         }
         return sum;
     }
